@@ -568,3 +568,6 @@ sysinfo.txt
 # End of https://www.gitignore.io/api/unity,macos,rider,csharp,jetbrains
 
 .idea/
+
+# Post processing (Asset no longer available)
+[Aa]ssets/PostProcessing
