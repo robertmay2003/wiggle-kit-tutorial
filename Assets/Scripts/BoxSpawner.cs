@@ -10,6 +10,17 @@ public class BoxSpawner : MonoBehaviour
 	public Util.AudioGroup spawnAudio;
 	public Util.AudioGroup destroyAudio;
 
+	public AnimationCurve spawnIntensityCurve;
+	public AnimationCurve spawnSharpnessCurve;
+
+	public AnimationCurve destroyIntensityCurve;
+	public AnimationCurve destroySharpnessCurve;
+
+	void Start()
+	{
+		WiggleKit _ = WiggleKit.Instance;
+	}
+
 	// Update is called once per frame
     void Update()
     {
@@ -48,6 +59,9 @@ public class BoxSpawner : MonoBehaviour
 
 		    // Audio
 		    destroyAudio.Play(hit.point, 1f);
+
+		    // Vibration
+		    WiggleKit.StartVibration(destroyIntensityCurve, destroySharpnessCurve);
 	    }
 	    else
 	    {
@@ -56,6 +70,9 @@ public class BoxSpawner : MonoBehaviour
 
 		    // Audio
 		    spawnAudio.Play(hit.point, 1f);
+
+		    // Vibration
+		    WiggleKit.StartVibration(spawnIntensityCurve, spawnSharpnessCurve);
 	    }
     }
 }
